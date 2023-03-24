@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,500;1,900&display=swap');
+
+.text{
+    width: 400px;
+    height: 100px;
+    padding-left: 5%;
+    padding-top: 5%;
+}
+
+.escolha_curso{
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+}
+
+.curso{
+    color: #3347B0;
+    font-weight: 1000;
+}
