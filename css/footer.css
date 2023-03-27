@@ -1,0 +1,53 @@
+footer {
+    grid-area: footer;
+    display: flex;
+
+    width: 100%;
+    background-color: #3347B0;
+}
+
+.ul{
+    display: flex;
+    padding-top: 1%;
+    padding-left: 5%;
+}
+
+.list{
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.ulist{
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.cor{
+    color: #fff;
+}
+
+.nomes{
+    padding-top: 3%;
+    padding-left: 250px;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+.redes-sociais{
+    display: flex;
+    padding-top: 3%;
+    padding-left: 12%;
+    gap: 30%;
+}
+
+.youtube{
+    display: flex;
+    align-items: center;
+    height: 37%;
+    border: solid 2px #fff;
+	border-radius: 100%;
+}
+

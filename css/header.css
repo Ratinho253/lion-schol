@@ -1,4 +1,6 @@
+
 .div_inicio{
+    grid-area: header;
     height: 100px;
     width: 100%;
     background-color:  #3347B0;
