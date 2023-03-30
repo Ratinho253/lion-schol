@@ -61,6 +61,7 @@ main{
     background-color: #3347B0;
     padding-right: 12%;
     box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;  
 }
 
 .ds{
