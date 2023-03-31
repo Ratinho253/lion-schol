@@ -1,15 +1,11 @@
 'use strict'
 
-import { cursos } from "./module/script.js";
-// const curso = require('./module/script.js')
+import {button} from "./module/api.js"
 
-
+const botaoCurso = await button()
 
 
 const criandoCardCursos = (curso, indice) => {
-
-
-
 
     const divButtons = document.createElement('div');
     divButtons.classList.add('container-buttons');
@@ -45,8 +41,7 @@ const criandoCardCursos = (curso, indice) => {
 
 const carregarCurso = () => {
     const cardPrincipal = document.getElementById('card-principal')
-    const componentesCards = cursos.map(criandoCardCursos)
-    console.log(cursos);
+    const componentesCards = botaoCurso.cursos.map(criandoCardCursos)
 
     cardPrincipal.replaceChildren(...componentesCards)
 }

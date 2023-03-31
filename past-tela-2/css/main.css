@@ -1,0 +1,48 @@
+main{
+    grid-area: main;
+    background-color: aquamarine;
+}
+
+.status{
+    height: 30px;
+    width: 100%;
+    background-color: #BCC2E5;
+}
+
+.botaoFiltro{
+    position: relative;
+    display: inline-block;
+}
+
+.content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+
+.content:hover .content {
+    display: block;
+    background-color: blanchedalmond;
+}
+
+.botao{
+    background-color: #3347B0;
+    color: aliceblue;
+    font-weight: 500;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0  10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.content a {
+    color: tomato;
+    padding: 12px 16px;
+    display: block;
+}
+
+.content a:hover {
+    background-color: var(--header-status-color);
+    color: var(--header-color);
+}

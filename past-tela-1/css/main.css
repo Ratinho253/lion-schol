@@ -106,3 +106,15 @@ main{
     height: 60px;
 }
 
+@media (max-width:647px){
+
+    .image-responsive{
+        display: none;
+    }
+    .estudante{
+        display: none;
+    }
+
+} 
+
+

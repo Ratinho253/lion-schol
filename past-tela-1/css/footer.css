@@ -1,34 +1,36 @@
 footer {
     grid-area: footer;
     display: flex;
-
+    height: 100%;
     width: 100%;
     background-color: #3347B0;
 }
 
-.ul{
+
+
+.ul {
     display: flex;
     padding-top: 1%;
     padding-left: 5%;
 }
 
-.list{
+.list {
     display: flex;
     flex-direction: column;
     gap: 13px;
 }
 
-.ulist{
+.ulist {
     display: flex;
     align-items: center;
     gap: 13px;
 }
 
-.cor{
+.cor {
     color: #fff;
 }
 
-.nomes{
+.nomes {
     padding-top: 3%;
     padding-left: 250px;
     color: #fff;
@@ -36,19 +38,25 @@ footer {
     font-size: 18px;
 }
 
-.redes-sociais{
+.redes-sociais {
     display: flex;
     padding-top: 2%;
     padding-left: 18%;
     gap: 30%;
 }
 
-.youtube{
+.youtube {
     display: flex;
     align-items: center;
     padding: 8%;
     height: 37%;
     border: solid 7px #fff;
-	border-radius: 50%;
+    border-radius: 50%;
 }
 
+@media (max-width:647px) {
+    .ul {
+        display: none;
+    }
+
+}

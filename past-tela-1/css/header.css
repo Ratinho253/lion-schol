@@ -42,3 +42,13 @@
     font-size: 2rem;
     color: #ffff;
 }
+
+@media (max-width:647px){
+    .sair{
+        display: none;
+    } 
+    .texto_sair{
+        display: none;
+    } 
+
+} 

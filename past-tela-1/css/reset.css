@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    border-radius: border-box;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-rows: 150px 1fr 150px;
+}
+
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+@media (max-width:647px) {
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+}

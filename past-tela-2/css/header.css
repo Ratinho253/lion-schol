@@ -1,0 +1,44 @@
+.div_inicio {
+    grid-area: header;
+    height: 100px;
+    width: 100%;
+    background-color: #3347B0;
+    display:flex;
+    justify-content: space-between;
+}
+
+.start {
+    display: flex;
+    padding: 1%;
+    padding-left: 10%;
+    gap: 5%;
+}
+
+.lion_school {
+    display: flex;
+    padding-top: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    color: #ffff;
+}
+
+.sair {
+    display: flex;
+    height: 70px;
+    width: 200px;
+    padding-top: 1.5%;
+}
+
+.icone-sair{
+    height: 40px;
+    width: 40px;
+}
+
+.texto_sair{
+    display: flex;
+    padding: 3%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+    color: #ffff;
+}
