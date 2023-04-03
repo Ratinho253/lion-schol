@@ -1,120 +1,134 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,500;1,900&display=swap');
+.primeira-tela {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
 
-main{
+main {
     grid-area: main;
     display: flex;
     align-items: center;
 }
 
-.container{
+.container {
     padding-left: 5%;
-
 }
 
-.text{
+.text {
     width: 700px;
     height: 200px;
     padding-left: 10%;
     padding-top: 5%;
 }
 
-.escolha_curso{
+.escolha_curso {
     font-family: 'Roboto', sans-serif;
     font-size: 5rem;
 }
 
-.curso{
+.curso {
     color: #3347B0;
     font-weight: 1000;
 }
 
-.image-responsive{
+.image-responsive {
     height: 260px;
     width: 500px;
     padding-top: 4%;
     padding-left: 8%;
 }
 
-.estudante{
-    width: 300px;
-    height: 452px;
-    padding-top: 37%;
-    padding-left: 41%;
+.estudante {
+    width: max-content;
+    height: 30rem;
+    margin-left: 5%;
 }
 
-.cards1{
+.cards1 {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     gap: 51px;
-    padding-left: 15%;
+    padding-left: 5%;
 }
 
-.cards-tag{
+.cards-tag {
     padding-top: 10%;
 }
 
-.curso_DS{
+.curso_DS {
     display: flex;
-    height: 100px;
-    width: 140%;
     background-color: #3347B0;
     padding-right: 12%;
     box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.2);
-    cursor: pointer;  
+    cursor: pointer;
+}
+
+.curso_RDS {
+    display: flex;
+    background-color: #3347B0;
+    padding-right: 12%;
+    box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.curso_DS,
+.curso_RDS {
+    width: 20rem;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
 }
 
 .DS,
-.RDS{
-    padding: 3%;
+.RDS {
     font-family: 'Roboto', sans-serif;
     font-size: 64px;
     color: #ffff;
+    align-items: center;
 }
 
-.img-DS{
+.curso_DS:hover {
+    -xpedu-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.curso_RDS:hover {
+    -xpedu-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.img-DS {
     padding: 5%;
-    padding-left: 25%;
-    height: 60px;
+    height: 6rem;
 }
 
-
-.cards-tag-RDS{
+.cards-tag-RDS {
     padding-top: 10%;
 }
 
-.curso_RDS{
-    display: flex;
-    height: 100px;
-    width: 140%;
-    background-color: #3347B0;
-    padding-right: 12%;
-    box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.2);
-    cursor: pointer;  
-}
-
-.rds{
+.rds {
     padding: 3%;
     font-family: 'Roboto', sans-serif;
     font-size: 64px;
     color: #ffff;
 }
 
-.img-RDS{
+.img-RDS {
     padding: 5%;
-    padding-left: 25%;
-    height: 60px;
+    height: 6rem;
 }
 
-@media (max-width:647px){
-
-    .image-responsive{
+@media (max-width:647px) {
+    .image-responsive {
         display: none;
     }
-    .estudante{
+    .estudante {
         display: none;
     }
-
-} 
-
-
+}
