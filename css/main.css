@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,500;1,900&display=swap');
 
+/* Primeira Tela */
 main{
     grid-area: main;
     display: flex;
@@ -106,6 +107,43 @@ main{
     height: 60px;
 }
 
+/* SEGUNDA TELA */
+
+.cards-alunos_container {
+    display: none;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    padding: 16px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px #0006;
+    padding: 16px;
+    cursor: pointer;
+
+}
+
+.card:hover{
+    box-shadow: 0px 0px 8px transparent;
+}
+
+.card__image-aluno{
+    width: 200px;
+    height: 300px;
+    object-fit: contain;
+}
+
+.aluno-name__title{
+    font-size: 1.5rem;
+
+
 @media (max-width:647px){
 
     .image-responsive{
@@ -118,3 +156,4 @@ main{
 } 
 
 
+}

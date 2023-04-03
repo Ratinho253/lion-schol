@@ -46,5 +46,5 @@ const carregarCurso = () => {
     cardPrincipal.replaceChildren(...componentesCards)
 }
 
-carregarCurso()
+// carregarCurso()
 
