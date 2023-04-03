@@ -1,6 +1,6 @@
 'use strict'
 
-import {button} from "./module/api.js"
+import { button } from "./module/api.js"
 
 const botaoCurso = await button()
 
@@ -46,5 +46,4 @@ const carregarCurso = () => {
     cardPrincipal.replaceChildren(...componentesCards)
 }
 
-// carregarCurso()
-
+carregarCurso()

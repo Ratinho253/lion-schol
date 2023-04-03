@@ -1,23 +1,73 @@
+/* header status */
 
-.div_inicio{
-    grid-area: header;
-    height: 100px;
+.card-status {
     width: 100%;
-    background-color:  #3347B0;
+    background-color: #BCC2E5;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    color: #3347B0;
+}
+
+.legenda-status-color-items {
+    display: flex;
+    align-items: center;
+}
+
+.menu-hamburger_status {
+    width: 10%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.legenda-status_componentes {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    justify-content: space-evenly;
+}
+
+.legenda-status_componentes {
     display: flex;
 }
 
-.start{
+.color-status_cursando {
+    background-color: #3347B0;
+}
+
+.color-status_finalizado {
+    background-color: #E5B657;
+}
+
+.color-status_finalizado,
+.color-status_cursando {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+
+/* Header */
+
+.div_inicio {
+    grid-area: header;
+    height: 100px;
+    width: 100%;
+    background-color: #3347B0;
+    display: flex;
+}
+
+.start {
     height: 70px;
     width: 100px;
     padding-top: 12px;
-    padding-left: 96px ;
+    padding-left: 96px;
     display: flex;
     justify-items: center;
     gap: 16px;
 }
 
-.lion_school{
+.lion_school {
     display: flex;
     padding-top: 10px;
     font-family: 'Roboto', sans-serif;
@@ -25,7 +75,7 @@
     color: #ffff;
 }
 
-.sair{
+.sair {
     padding-top: 20px;
     padding-left: 80%;
     height: 40px;
@@ -34,7 +84,7 @@
     gap: 1px;
 }
 
-.texto_sair{
+.texto_sair {
     display: flex;
     padding: 5px;
     font-family: 'Roboto', sans-serif;
@@ -43,12 +93,11 @@
     color: #ffff;
 }
 
-@media (max-width:647px){
-    .sair{
+@media (max-width:647px) {
+    .sair {
         display: none;
-    } 
-    .texto_sair{
+    }
+    .texto_sair {
         display: none;
-    } 
-
-} 
+    }
+}

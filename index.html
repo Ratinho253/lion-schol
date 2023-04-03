@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,500;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,500;1,900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e04fba6142.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/main.css">
@@ -25,21 +25,41 @@
 <body>
 
     <!-- criando o header do projeto -->
-    <header class="div_inicio">
-        <div class="start">
-            <img src="./imgs/logo-image.png" alt="imagem inicio">
-            <p class="lion_school"> Lion School </p>
+    <header>
+        <div class="div_inicio">
+            <div class="start">
+                <img src="./imgs/logo-image.png" alt="imagem inicio">
+                <p class="lion_school"> Lion School </p>
+            </div>
+            <div class="sair">
+                <img src="./imgs/sair.png" alt="icone de sair da tela">
+                <p class="texto_sair"> Sair </p>
+            </div>
+
         </div>
-        <div class="sair">
-            <img src="./imgs/sair.png" alt="icone de sair da tela">
-            <p class="texto_sair"> Sair </p>
+        <div class="card-status">
+            <div class="menu-hamburger_status">
+                <span class="menu-hamburger_title">Status</span>
+            </div>
+            <div class="legenda-status_componentes">
+                <span class="legenda-satus_title">LEGENDA</span>
+
+
+                <div class="color-status_cursando"></div>
+                <p class="legenda-status">Cursando</p>
+
+                <div class="color-status_finalizado"></div>
+                <p class="legenda-status">Finalizado</p>
+
+
+
+            </div>
         </div>
     </header>
 
     <!-- criando o main do projeto -->
     <main>
-
-        <!-- <div class="cards-alunos_container" id="cards-alunos_container">
+        <div class="cards-alunos_container" id="cards-alunos_container">
 
             <div class="card">
                 <img src="" alt="" class="card__image-aluno">
@@ -47,39 +67,58 @@
 
             </div>
 
-        </div> -->
+        </div>
+        <section class="primeira-tela">
+
+            <!-- texto de escolhe seu curso -->
+            <div class="container">
+                <div class="text">
+                    <p class="escolha_curso">
+                        Escolha um <span class="curso"> curso </span> para gerenciar
+                    </p>
+                </div>
+
+                <!-- imagem de responsividade -->
+                <div class="image-responsive">
+                    <img src="./imgs/devices.png" alt="imagem de responsividade">
+                </div>
+
+            </div>
+            <!-- imagem estudante -->
 
 
-        <!-- texto de escolhe seu curso -->
-        <div class="container">
-            <div class="text">
-                <p class="escolha_curso">
-                    Escolha um <span class="curso"> curso </span>
-                    para gerenciar
-                </p>
+            <!-- cards feito no js -->
+            <div class="estudante">
+                <img src="./imgs/studant.png" alt="estudante" class="estudante">
             </div>
 
-            <!-- imagem de responsividade -->
-            <div class="image-responsive">
-                <img src="./imgs/devices.png" alt="imagem de responsividade">
+
+            <div class="cards1" id="card-principal">
+
+
+                <!-- <div class="cards-tag" id="cards-tag">
+                <div class="curso_ds" id="ds">
+                    <img src="./imgs/img-ds.png" alt="img ds" class="img-ds">
+                    <p class="ds" id="ds">DS</p>
+                </div>
+            </div>
+            <div class="cards-tag-rds" id="cards-tag-rds">
+                <div class="curso_rds" id="rds">
+                    <img src="./imgs/img-rede.png" alt="img rede" class="img-rds">
+                    <p class="rds" id="rds">REDES</p>
+                </div>
+            </div> -->
+
             </div>
 
-        </div>
-        <!-- imagem estudante -->
-
-
-        <!-- cards feito no js -->
-        <div class="studiante">
-            <img src="./imgs/studant.png" alt="estudante" class="estudante">
-        </div>
-
-
-        
 
 
 
 
+        </section>
     </main>
+
+
 
     <!-- criando o  footer do projeto -->
     <footer>
@@ -111,25 +150,43 @@
 
         <div class="nomes">
             <span class="nomes">
-                Copyright © 2022 | Daniela | João
-            </span>
+                    Copyright © 2022 | Daniela | João
+                </span>
         </div>
 
         <ul class="redes-sociais">
-            <div class="youtube">
-                <li> <img src="./imgs/youtube.png" alt="phone"> </li>
+            <div class="social-logo">
+                <a href="" class="youtube">
+                    <li>
+                        <i class="fa-brands fa-youtube"></i>
+                    </li>
+                </a>
+
             </div>
 
-            <div class="youtube">
-                <li> <img src="./imgs/youtube.png" alt="phone"> </li>
+            <div class="social-logo">
+                <a href="" class="twitter">
+                    <li>
+                        <i class="fa-brands fa-twitter"></i>
+                    </li>
+                </a>
+
             </div>
 
-            <div class="youtube">
-                <li> <img src="./imgs/youtube.png" alt="phone"> </li>
+            <div class="social-logo">
+                <li>
+                    <a href="" class="instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </li>
             </div>
 
-            <div class="youtube">
-                <li> <img src="./imgs/youtube.png" alt="phone"> </li>
+            <div class="social-logo">
+                <li>
+                    <a href="" class="facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                </li>
             </div>
         </ul>
 
