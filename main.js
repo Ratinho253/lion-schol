@@ -1,11 +1,19 @@
 'use strict'
 
-import { button } from "./module/api.js"
+import { getItensCurso } from "./module/api.js"
 
-const botaoCurso = await button()
+import { getAlunos } from "./module/api.js"
+
+
+const botaoCurso = await getItensCurso()
+
+
 
 //Primeira tela
 const criandoCardCursos = (curso, indice) => {
+    const divPrimeiraTela = document.getElementById('primeira-tela')
+    const divSegundaTela = document.getElementById('cards-alunos_container')
+    const headerSegundaTela = document.getElementById('card-status')
 
     const divButtons = document.createElement('div');
     divButtons.classList.add('container-buttons');
@@ -30,12 +38,14 @@ const criandoCardCursos = (curso, indice) => {
     divButtons.append(cardCurso);
 
 
-    divButtons.onclick = () => {
-        carregarCurso(indice)
+    cardCurso.onclick = () => {
+        carregarCardsAlunosCurso(indice)
+        divPrimeiraTela.style.display = 'none'
+        divSegundaTela.style.display = 'grid'
+        headerSegundaTela.style.display = 'flex'
+
     }
     return divButtons;
-
-
 
 }
 
@@ -46,25 +56,31 @@ const carregarCurso = () => {
     cardPrincipal.replaceChildren(...componentesCards)
 }
 //Segunda Tela
-const getAlunos = async (filtro) =>{
+const criandoCardAlunos = (aluno, indice) => {
 
-    const urlTodosAlunos = `https://dull-rose-quail-yoke.cyclic.app/v1/lion-school/alunos`;
-    const responseTodosAlunos = await fetch(urlTodosAlunos);
-    const dataTodosAlunos = await responseTodosAlunos.json();
+    const cardAluno = document.createElement('div');
+    cardAluno.classList.add('card');
 
-    const urlAlunosCurso = `https://dull-rose-quail-yoke.cyclic.app/v1/lion-school/alunos?cursos=${filtro}`
-    const responseAlunosCurso = await fetch(urlAlunosCurso);
-    const dataAlunosCurso = await responseAlunosCurso.json();
+    const imgCardAluno = document.createElement('img');
+    imgCardAluno.classList.add('card__image-aluno');
+    imgCardAluno.src = aluno.image;
 
-    const urlAlunosStatus = `https://dull-rose-quail-yoke.cyclic.app/v1/lion-school/alunos?status=${filtro}`
-    const responseAlunosStatus = await fetch(urlAlunosStatus);
-    const dataAlunosStatus = await responseAlunosStatus.json();
+    const nomeCardAluno = document.createElement('h5');
+    nomeCardAluno.classList.add('aluno-name__title');
+    nomeCardAluno.textContent = aluno.nome;
 
-    return{
-        listaTodosAlunos: dataTodosAlunos,
-        listaAlunosCurso: dataAlunosCurso,
-        listaAlunosStatus: dataAlunosStatus
-    }
+    cardAluno.append(imgCardAluno, nomeCardAluno);
+
+    return cardAluno;
+
 }
+const carregarCardsAlunosCurso = async (indice) => {
+    const sigla = await botaoCurso.cursos[indice].sigla
+    const listaAlunos = await getAlunos(sigla)
+    console.log(listaAlunos.listaAlunosCurso);
+    const cardPrincipalAlunos = document.getElementById('cards-alunos_container');
+    const dadosAlunosCard = await listaAlunos.listaAlunosCurso.map(criandoCardAlunos)
 
+    cardPrincipalAlunos.replaceChildren(...dadosAlunosCard)
+}
 carregarCurso()

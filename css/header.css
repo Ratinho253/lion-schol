@@ -4,7 +4,7 @@
     width: 100%;
     background-color: #BCC2E5;
     height: 3rem;
-    display: flex;
+    display: none;
     justify-content: space-between;
     color: #3347B0;
 }
@@ -49,42 +49,41 @@
 
 /* Header */
 
-.div_inicio {
+.div_inicio{
     grid-area: header;
-    height: 100px;
+    height: 100%;
     width: 100%;
-    background-color: #3347B0;
+    background-color:  #3347B0;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.start {
+.start{
     height: 70px;
     width: 100px;
-    padding-top: 12px;
-    padding-left: 96px;
+    margin-left: 2rem;
     display: flex;
     justify-items: center;
     gap: 16px;
 }
 
-.lion_school {
+.lion_school{
     display: flex;
-    padding-top: 10px;
+    margin-top: .7rem;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     color: #ffff;
 }
 
-.sair {
-    padding-top: 20px;
-    padding-left: 80%;
+.sair{
     height: 40px;
-    width: 100px;
+    width: 10rem;
     display: flex;
     gap: 1px;
 }
 
-.texto_sair {
+.texto_sair{
     display: flex;
     padding: 5px;
     font-family: 'Roboto', sans-serif;
@@ -93,11 +92,12 @@
     color: #ffff;
 }
 
-@media (max-width:647px) {
-    .sair {
+@media (max-width:647px){
+    .sair{
         display: none;
-    }
-    .texto_sair {
+    } 
+    .texto_sair{
         display: none;
-    }
-}
+    } 
+
+} 
