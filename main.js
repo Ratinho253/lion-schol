@@ -63,7 +63,8 @@ const carregarCurso = () => {
         cardPrincipal.replaceChildren(...componentesCards)
     }
     //Segunda Tela
-const criandoCardAlunos = (aluno) => {
+const criandoCardAlunos = (aluno, indice) => {
+
     const menuDropdown = document.getElementById('menu-dropdown_content')
 
     const cardPlace = document.createElement('div');
@@ -104,7 +105,7 @@ const criandoTituloCurso = (aluno) => {
     if (aluno.sigla == 'DS') {
         titleCard.textContent = 'Técnico em Desenvolvimento de Sistemas'
 
-    } else {
+    } else if (aluno.sigla == 'RDS') {
 
         titleCard.textContent = 'Técnico em Redes de Computadores'
     }
@@ -135,8 +136,6 @@ const criandoCarregamentoStatus = async() => {
             if (idClicado == 'status') {
 
                 const todos = await getAlunos()
-                console.log(todos);
-
 
 
                 const cardPrincipalAlunos = document.getElementById('cards-alunos_container');
@@ -144,20 +143,18 @@ const criandoCarregamentoStatus = async() => {
                 const cardsAlunos = document.getElementById('card-curso_place');
 
                 const dadosAlunosCard = await todos.listaTodosAlunos.alunos.map(criandoCardAlunos)
-
                 cardsAlunos.replaceChildren(...dadosAlunosCard)
+
 
 
             } else {
                 const retorno = await getAlunosStatus(idClicado)
-
 
                 const cardPrincipalAlunos = document.getElementById('cards-alunos_container');
 
                 const cardsAlunos = document.getElementById('card-curso_place');
 
                 const dadosAlunosCard = await retorno.listaAlunosStatus.alunos.map(criandoCardAlunos)
-
                 cardsAlunos.replaceChildren(...dadosAlunosCard)
 
             }
@@ -167,25 +164,7 @@ const criandoCarregamentoStatus = async() => {
         })
     });
 
-    // const botaoFinalizado = document.getElementById('aluno-finalizado');
-    // console.log(aluno.status);
 
-
-
-    // if (botaoFinalizado.onclick()) {
-
-    //     const cardPrincipalAlunos = document.getElementById('cards-alunos_container');
-
-    //     const cardsAlunos = document.getElementById('card-curso_place');
-    //     const statusAluno = await aluno.status;
-
-    //     const listaAlunos = await getAlunosStatus(statusAluno)
-    //     const dadosAlunosCard = await listaAlunos.listaAlunosCurso.alunos.map(criandoCardAlunos)
-    //         // const dadosTituloCurso = await criandoTituloCurso(listaAlunos.listaAlunosCurso.alunos[1])
-
-    //     cardsAlunos.replaceChildren(...dadosAlunosCard)
-
-    // }
 
 }
 
