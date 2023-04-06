@@ -2,7 +2,7 @@
 
 import { getItensCurso } from "./module/api.js"
 
-import { getAlunos } from "./module/api.js"
+import { getAlunos, getAlunosCurso, getAlunosStatus } from "./module/api.js"
 
 
 const botaoCurso = await getItensCurso()
@@ -56,7 +56,7 @@ const carregarCurso = () => {
     cardPrincipal.replaceChildren(...componentesCards)
 }
 //Segunda Tela
-const criandoCardAlunos = (aluno, indice) => {
+const criandoCardAlunos = (aluno) => {
 
     const cardAluno = document.createElement('div');
     cardAluno.classList.add('card');
@@ -69,17 +69,26 @@ const criandoCardAlunos = (aluno, indice) => {
     nomeCardAluno.classList.add('aluno-name__title');
     nomeCardAluno.textContent = aluno.nome;
 
+    if (aluno.status == 'Finalizado') {
+        cardAluno.style.backgroundColor = '#3347B0'
+    } else{
+        cardAluno.style.backgroundColor = '#E5B657'
+    }
+    
+
     cardAluno.append(imgCardAluno, nomeCardAluno);
 
     return cardAluno;
 
 }
 const carregarCardsAlunosCurso = async (indice) => {
+
     const sigla = await botaoCurso.cursos[indice].sigla
-    const listaAlunos = await getAlunos(sigla)
-    console.log(listaAlunos.listaAlunosCurso);
+
+    const listaAlunos = await getAlunosCurso(sigla)
+    console.log(listaAlunos);
     const cardPrincipalAlunos = document.getElementById('cards-alunos_container');
-    const dadosAlunosCard = await listaAlunos.listaAlunosCurso.map(criandoCardAlunos)
+    const dadosAlunosCard = await listaAlunos.listaAlunosCurso.alunos.map(criandoCardAlunos)
 
     cardPrincipalAlunos.replaceChildren(...dadosAlunosCard)
 }

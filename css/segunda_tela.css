@@ -15,18 +15,21 @@
 .card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 12px;
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0px 0px 8px #0006;
-    padding: 16px;
+   margin: 16px;
     cursor: pointer;
+    transition: .6s;
 }
 
 .card:hover {
-    box-shadow: 0px 0px 8px transparent;
+    -xpedu-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .card__image-aluno {
@@ -37,12 +40,7 @@
 
 .aluno-name__title {
     font-size: 1.5rem;
-    @media (max-width: 647px) {
-        .image-responsive {
-            display: none;
-        }
-        .estudante {
-            display: none;
-        }
-    }
+    margin: 1rem;
+    text-align: center;
+    color: #ffffff;
 }
