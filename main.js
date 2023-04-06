@@ -5,12 +5,19 @@ import { getItensCurso } from "./module/api.js"
 import { getAlunos, getAlunosCurso, getAlunosStatus } from "./module/api.js"
 
 
-const botaoCurso = await getItensCurso()
+
+
+const botaoCurso = await getItensCurso();
+const listaTodosAlunos = await getAlunos();
 
 
 
 //Primeira tela
 const criandoCardCursos = (curso, indice) => {
+
+
+
+
     const divPrimeiraTela = document.getElementById('primeira-tela')
     const divSegundaTela = document.getElementById('cards-alunos_container')
     const headerSegundaTela = document.getElementById('card-status')
@@ -41,7 +48,7 @@ const criandoCardCursos = (curso, indice) => {
     cardCurso.onclick = () => {
         carregarCardsAlunosCurso(indice)
         divPrimeiraTela.style.display = 'none'
-        divSegundaTela.style.display = 'grid'
+        divSegundaTela.style.display = 'flex'
         headerSegundaTela.style.display = 'flex'
 
     }
@@ -50,13 +57,17 @@ const criandoCardCursos = (curso, indice) => {
 }
 
 const carregarCurso = () => {
-    const cardPrincipal = document.getElementById('card-principal')
-    const componentesCards = botaoCurso.cursos.map(criandoCardCursos)
+        const cardPrincipal = document.getElementById('card-principal')
+        const componentesCards = botaoCurso.cursos.map(criandoCardCursos)
 
-    cardPrincipal.replaceChildren(...componentesCards)
-}
-//Segunda Tela
+        cardPrincipal.replaceChildren(...componentesCards)
+    }
+    //Segunda Tela
 const criandoCardAlunos = (aluno) => {
+    const menuDropdown = document.getElementById('menu-dropdown_content')
+
+    const cardPlace = document.createElement('div');
+    cardPlace.classList.add('card-curso_place');
 
     const cardAluno = document.createElement('div');
     cardAluno.classList.add('card');
@@ -69,27 +80,114 @@ const criandoCardAlunos = (aluno) => {
     nomeCardAluno.classList.add('aluno-name__title');
     nomeCardAluno.textContent = aluno.nome;
 
+
+
     if (aluno.status == 'Finalizado') {
         cardAluno.style.backgroundColor = '#3347B0'
-    } else{
+    } else {
         cardAluno.style.backgroundColor = '#E5B657'
     }
-    
 
     cardAluno.append(imgCardAluno, nomeCardAluno);
+    cardPlace.append(cardAluno)
 
-    return cardAluno;
+
+    return cardPlace;
 
 }
-const carregarCardsAlunosCurso = async (indice) => {
+const criandoTituloCurso = (aluno) => {
 
+    const cardPrincipalAlunos = document.getElementById('cards-alunos_container');
+    const titleCard = document.createElement('h1')
+    titleCard.classList.add('nome-curso_title')
+
+    if (aluno.sigla == 'DS') {
+        titleCard.textContent = 'Técnico em Desenvolvimento de Sistemas'
+
+    } else {
+
+        titleCard.textContent = 'Técnico em Redes de Computadores'
+    }
+
+    cardPrincipalAlunos.append(titleCard)
+}
+const carregarCardsAlunosCurso = async(indice) => {
+    const cardPrincipalAlunos = document.getElementById('cards-alunos_container');
+
+    const cardsAlunos = document.getElementById('card-curso_place');
     const sigla = await botaoCurso.cursos[indice].sigla
 
     const listaAlunos = await getAlunosCurso(sigla)
-    console.log(listaAlunos);
-    const cardPrincipalAlunos = document.getElementById('cards-alunos_container');
     const dadosAlunosCard = await listaAlunos.listaAlunosCurso.alunos.map(criandoCardAlunos)
+    const dadosTituloCurso = await criandoTituloCurso(listaAlunos.listaAlunosCurso.alunos[1])
 
-    cardPrincipalAlunos.replaceChildren(...dadosAlunosCard)
+    cardsAlunos.replaceChildren(...dadosAlunosCard)
+
 }
+const criandoCarregamentoStatus = async() => {
+    const buttons = document.querySelectorAll('.card-')
+
+    buttons.forEach(button => {
+        button.addEventListener('click', async() => {
+            const idClicado = button.id;
+            console.log(idClicado);
+
+            if (idClicado == 'status') {
+
+                const todos = await getAlunos()
+                console.log(todos);
+
+
+
+                const cardPrincipalAlunos = document.getElementById('cards-alunos_container');
+
+                const cardsAlunos = document.getElementById('card-curso_place');
+
+                const dadosAlunosCard = await todos.listaTodosAlunos.alunos.map(criandoCardAlunos)
+
+                cardsAlunos.replaceChildren(...dadosAlunosCard)
+
+
+            } else {
+                const retorno = await getAlunosStatus(idClicado)
+
+
+                const cardPrincipalAlunos = document.getElementById('cards-alunos_container');
+
+                const cardsAlunos = document.getElementById('card-curso_place');
+
+                const dadosAlunosCard = await retorno.listaAlunosStatus.alunos.map(criandoCardAlunos)
+
+                cardsAlunos.replaceChildren(...dadosAlunosCard)
+
+            }
+
+
+
+        })
+    });
+
+    // const botaoFinalizado = document.getElementById('aluno-finalizado');
+    // console.log(aluno.status);
+
+
+
+    // if (botaoFinalizado.onclick()) {
+
+    //     const cardPrincipalAlunos = document.getElementById('cards-alunos_container');
+
+    //     const cardsAlunos = document.getElementById('card-curso_place');
+    //     const statusAluno = await aluno.status;
+
+    //     const listaAlunos = await getAlunosStatus(statusAluno)
+    //     const dadosAlunosCard = await listaAlunos.listaAlunosCurso.alunos.map(criandoCardAlunos)
+    //         // const dadosTituloCurso = await criandoTituloCurso(listaAlunos.listaAlunosCurso.alunos[1])
+
+    //     cardsAlunos.replaceChildren(...dadosAlunosCard)
+
+    // }
+
+}
+
 carregarCurso()
+criandoCarregamentoStatus()

@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/responsividade.css">
+    <link rel="stylesheet" href="/css/menu_status.css">
     <script src="./main.js" defer type="module"></script>
     <title>School</title>
 </head>
@@ -39,8 +40,17 @@
 
         </div>
         <div class="card-status" id="card-status">
-            <div class="menu-hamburger_status">
-                <span class="menu-hamburger_title">Status</span>
+            <div class="menu-dropdown_status">
+                <div class="dropdown" id="dropdown">
+
+                    <span class="menu-dropdown_title">Status</span>
+                    <div class="menu-dropdown_content" id="menu-dropdown_content">
+                        <p class="card- menu_aluno-finalizado" id="Finalizado">Finalizado</p>
+                        <p class="card- menu_aluno-cursando" id="Cursando">Cursando</p>
+                        <p class="card- menu_aluno-todos" id="status">Todos</p>
+                    </div>
+
+                </div>
             </div>
             <div class="legenda-status_componentes">
                 <span class="legenda-satus_title">LEGENDA</span>
@@ -61,10 +71,11 @@
     <!-- criando o main do projeto -->
     <main>
         <div class="cards-alunos_container" id="cards-alunos_container">
+            <div class="card-curso_place" id="card-curso_place"></div>
 
         </div>
-       
-        
+
+
         <section class="primeira-tela" id="primeira-tela">
 
             <!-- texto de escolhe seu curso -->
@@ -94,17 +105,17 @@
 
 
                 <div class="cards-tag" id="cards-tag">
-                <div class="curso_ds" id="ds">
-                    <img src="./imgs/img-ds.png" alt="img ds" class="img-ds">
-                    <p class="ds" id="ds">DS</p>
+                    <div class="curso_ds" id="ds">
+                        <img src="./imgs/img-ds.png" alt="img ds" class="img-ds">
+                        <p class="ds" id="ds">DS</p>
+                    </div>
                 </div>
-            </div>
-            <div class="cards-tag-rds" id="cards-tag-rds">
-                <div class="curso_rds" id="rds">
-                    <img src="./imgs/img-rede.png" alt="img rede" class="img-rds">
-                    <p class="rds" id="rds">REDES</p>
+                <div class="cards-tag-rds" id="cards-tag-rds">
+                    <div class="curso_rds" id="rds">
+                        <img src="./imgs/img-rede.png" alt="img rede" class="img-rds">
+                        <p class="rds" id="rds">REDES</p>
+                    </div>
                 </div>
-            </div>
 
             </div>
 
