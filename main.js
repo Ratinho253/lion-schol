@@ -91,10 +91,8 @@ const carregarAluno_grafico = () => {
 const criandoGrafico = (aluno) => {
     console.log(aluno);
     if(aluno.matricula == matricula){
-        console.log('teste if');
-        const cardMateria = document.createElement('div')
-        cardMateria.classList.add('cardMaterias')
-
+        
+        
 
         const grafico = document.createElement('div')
         grafico.classList.add('grafico')
@@ -135,9 +133,7 @@ const criandoGrafico = (aluno) => {
             grafico.append(segura)
         })
         
-        cardMateria.append(grafico)
-        console.log(cardMateria);
-        return cardMateria
+        return grafico
     }else{
         return ""
     }
