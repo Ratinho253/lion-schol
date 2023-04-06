@@ -8,3 +8,13 @@ export const button = async () =>{
 
     return data
 }
+
+
+export const  grafico = async () => {
+    
+    const url = `https://dull-rose-quail-yoke.cyclic.app/v1/lion-school/alunos`
+    const response = await fetch(url)
+    const data = await response.json()
+
+    return data
+}

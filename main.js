@@ -50,43 +50,109 @@
 
 // carregarCurso()
 
-// tela 2 finalizando 
+// tela 3 tela 
 
 import { alunos } from "./module/script2.js";
 
+const matricula = '20151001001'
 
-const criandoCarAluno = (aluno, indice ) => {
 
-    const divAluno = document.createElement('div')
-    divAluno.classList.add('cardAluno')
+const criandoCarAluno = (aluno) => {
+
 
     const divFoto = document.createElement('div')
-    divAluno.classList.add('fotoAluno')
+    divFoto.classList.add('fotoAluno')
 
     const img = document.createElement('img')
     img.classList.add('img-aluno')
     img.src = aluno.foto
 
-    divFoto.append(img)
+    const text = document.createElement('p')
+    text.classList.add('name-aluno')
+    text.textContent = aluno.nome;
+    
 
-    divAluno.append(divFoto)
+    divFoto.append(img,text)
 
-    divAluno.onclick = () => {
-        carregarAluno_grafico(indice)
-    }
-
-    return divAluno
+    
+    return divFoto
 
 }
 
 const carregarAluno_grafico = () => {
-    console.log(alunos);
+    
     const cardAluno = document.getElementById('cardAluno')
     const componentesCards = alunos.map(criandoCarAluno)
 
-    cardAluno.replaceChildren(...componentesCards)
+    cardAluno.appendChild(...componentesCards)
 }
 
 
+const criandoGrafico = (aluno) => {
+    console.log(aluno);
+    if(aluno.matricula == matricula){
+        console.log('teste if');
+        const cardMateria = document.createElement('div')
+        cardMateria.classList.add('cardMaterias')
+
+
+        const grafico = document.createElement('div')
+        grafico.classList.add('grafico')
+
+        aluno.curso[0].disciplinas.forEach(function(disciplina){
+            const segura = document.createElement('div')
+            segura.classList.add('segura')
+            const textNota =document.createElement('p')
+            textNota.textContent = disciplina.media
+
+            const tamanho_nota = document.createElement('div')
+            tamanho_nota.classList.add('potuacao')
+
+            const valorNota = document.createElement('div')
+            const valor = parseInt(textNota.textContent)
+
+            if(parseInt(textNota.textContent) >=0 && parseInt(textNota.textContent)<=100){
+                textNota.classList.add('nota_aprovado')
+                valorNota.classList.add('nota_aprovado')
+            }else if(parseInt(textNota.textContent) >= 70 && parseInt(textNota.textContent)<= 60){
+                textNota.classList.add('nota_reprovado')
+                valorNota.classList.add('nota_reprovado')
+            }else if(parseInt(textNota.textContent) >=61 && parseInt(textNota.textContent)<= 69){
+                textNota.classList.add('nota_meio_termo')
+                valorNota.classList.add('nota_meio_termo')
+            }
+
+            const altura = `${(valor / 50 ) * 50}%`
+            valorNota.style.height = altura
+
+
+            const materia = document.createElement('span')
+            materia.classList.add('disciplina')
+            materia.textContent = disciplina.nome.substr(1,2,3).toUpperCase()
+
+            tamanho_nota.append(valorNota)
+            segura.append(textNota, tamanho_nota, materia)
+            grafico.append(segura)
+        })
+        
+        cardMateria.append(grafico)
+        console.log(cardMateria);
+        return cardMateria
+    }else{
+        return ""
+    }
+}
+
+const carregar_grafico = () => {
+    
+    const container = document.querySelector('.cardMaterias')
+    const grafico = alunos.map(criandoGrafico)
+
+    container.replaceChildren(...grafico)
+}
+
+
+
+carregar_grafico()
 carregarAluno_grafico()
 
