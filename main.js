@@ -100,28 +100,32 @@ const criandoGrafico = (aluno) => {
         aluno.curso[0].disciplinas.forEach(function(disciplina){
             const segura = document.createElement('div')
             segura.classList.add('segura')
-            const textNota =document.createElement('p')
+
+            const textNota =document.createElement('span')
+            textNota.classList.add('potuacao')
             textNota.textContent = disciplina.media
 
             const tamanho_nota = document.createElement('div')
-            tamanho_nota.classList.add('potuacao')
+            tamanho_nota.classList.add('percentual')
 
             const valorNota = document.createElement('div')
+            valorNota.classList.add('cor')
             const valor = parseInt(textNota.textContent)
 
             if(parseInt(textNota.textContent) >=0 && parseInt(textNota.textContent)<=100){
-                textNota.classList.add('nota_aprovado')
+                textNota.classList.add('porcentagem-nota-aprovado')
                 valorNota.classList.add('nota_aprovado')
             }else if(parseInt(textNota.textContent) >= 70 && parseInt(textNota.textContent)<= 60){
-                textNota.classList.add('nota_reprovado')
+                textNota.classList.add('porcentagem-nota-reprovado')
                 valorNota.classList.add('nota_reprovado')
             }else if(parseInt(textNota.textContent) >=61 && parseInt(textNota.textContent)<= 69){
-                textNota.classList.add('nota_meio_termo')
+                textNota.classList.add('porcentagem-nota-exame')
                 valorNota.classList.add('nota_meio_termo')
             }
 
             const altura = `${(valor / 50 ) * 50}%`
             valorNota.style.height = altura
+            console.log(altura);
 
 
             const materia = document.createElement('span')

@@ -59,13 +59,39 @@
 .percentual{
     height: 200px;
     width: 10px;
-    background-color: #EEEFF8 ;
+    background-color: #fff ;
     border: solid 1px #fff;
     border-radius: 10%;
     display: flex;
     justify-content: end;
     flex-direction: column;
-    height: 90%;
+}
+
+.percentual-nota-aprovado{
+    font-style: normal;
+    font-weight: 700;
+    line-height: 27px;
+    font-family: 'Poppins', sans-serif;
+    color: #3347B0;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.percentual-nota-reprovado{
+    font-style: normal;
+    font-weight: 700;
+    line-height: 27px;
+    font-family: 'Poppins', sans-serif;
+    color: #c11010;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.percentual-nota-exame{
+    font-style: normal;
+    font-weight: 700;
+    line-height: 27px;
+    font-family: 'Poppins', sans-serif;
+    color: #E5B657;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .disciplina{
@@ -75,9 +101,7 @@
     color: #3347B0;
 }
 
-.cor{
-    background-color: aqua;
-}
+
 
 .cor_aprovado{
     background-color: #3347B0;
