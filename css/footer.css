@@ -12,12 +12,17 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 13px;
+    font-size: .5rem;
 }
 
+.ulist img{
+    height: 1rem;
+}
 .ulist {
     display: flex;
     align-items: center;
     gap: 13px;
+    font-size: .8rem;
 }
 
 .cor {

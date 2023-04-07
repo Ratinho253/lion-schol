@@ -15,9 +15,6 @@ const listaTodosAlunos = await getAlunos();
 //Primeira tela
 const criandoCardCursos = (curso, indice) => {
 
-
-
-
     const divPrimeiraTela = document.getElementById('primeira-tela')
     const divSegundaTela = document.getElementById('cards-alunos_container')
     const headerSegundaTela = document.getElementById('card-status')
@@ -57,12 +54,12 @@ const criandoCardCursos = (curso, indice) => {
 }
 
 const carregarCurso = () => {
-        const cardPrincipal = document.getElementById('card-principal')
-        const componentesCards = botaoCurso.cursos.map(criandoCardCursos)
+    const cardPrincipal = document.getElementById('card-principal')
+    const componentesCards = botaoCurso.cursos.map(criandoCardCursos)
 
-        cardPrincipal.replaceChildren(...componentesCards)
-    }
-    //Segunda Tela
+    cardPrincipal.replaceChildren(...componentesCards)
+}
+//Segunda Tela
 const criandoCardAlunos = (aluno, indice) => {
 
     const menuDropdown = document.getElementById('menu-dropdown_content')
@@ -101,6 +98,7 @@ const criandoTituloCurso = (aluno) => {
     const cardPrincipalAlunos = document.getElementById('cards-alunos_container');
     const titleCard = document.createElement('h1')
     titleCard.classList.add('nome-curso_title')
+    titleCard.setAttribute('id', 'nome-curso_title')
 
     if (aluno.sigla == 'DS') {
         titleCard.textContent = 'Técnico em Desenvolvimento de Sistemas'
@@ -108,11 +106,13 @@ const criandoTituloCurso = (aluno) => {
     } else if (aluno.sigla == 'RDS') {
 
         titleCard.textContent = 'Técnico em Redes de Computadores'
+    } else {
+        criandoCarregamentoStatus()
     }
 
     cardPrincipalAlunos.append(titleCard)
 }
-const carregarCardsAlunosCurso = async(indice) => {
+const carregarCardsAlunosCurso = async (indice) => {
     const cardPrincipalAlunos = document.getElementById('cards-alunos_container');
 
     const cardsAlunos = document.getElementById('card-curso_place');
@@ -120,26 +120,28 @@ const carregarCardsAlunosCurso = async(indice) => {
 
     const listaAlunos = await getAlunosCurso(sigla)
     const dadosAlunosCard = await listaAlunos.listaAlunosCurso.alunos.map(criandoCardAlunos)
-    const dadosTituloCurso = await criandoTituloCurso(listaAlunos.listaAlunosCurso.alunos[1])
+    const dadosTituloCurso = criandoTituloCurso(listaAlunos.listaAlunosCurso.alunos[1])
 
     cardsAlunos.replaceChildren(...dadosAlunosCard)
 
 }
-const criandoCarregamentoStatus = async() => {
+const criandoCarregamentoStatus = async () => {
     const buttons = document.querySelectorAll('.card-')
 
     buttons.forEach(button => {
-        button.addEventListener('click', async() => {
+        button.addEventListener('click', async () => {
             const idClicado = button.id;
             console.log(idClicado);
 
             if (idClicado == 'status') {
 
+                const cardPrincipalTitle = document.getElementById('nome-curso_title');
+
+                cardPrincipalTitle.style.display = 'none'
+
                 const todos = await getAlunos()
 
-
                 const cardPrincipalAlunos = document.getElementById('cards-alunos_container');
-
                 const cardsAlunos = document.getElementById('card-curso_place');
 
                 const dadosAlunosCard = await todos.listaTodosAlunos.alunos.map(criandoCardAlunos)
