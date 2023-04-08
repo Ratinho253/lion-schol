@@ -59,7 +59,6 @@
 .percentual{
     height: 200px;
     width: 10px;
-    background-color: #fff ;
     border: solid 1px #fff;
     border-radius: 10%;
     display: flex;
@@ -67,7 +66,7 @@
     flex-direction: column;
 }
 
-.percentual-nota-aprovado{
+.porcentagem-nota-aprovado{
     font-style: normal;
     font-weight: 700;
     line-height: 27px;
@@ -76,7 +75,7 @@
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.percentual-nota-reprovado{
+.porcentagem-nota-reprovado{
     font-style: normal;
     font-weight: 700;
     line-height: 27px;
@@ -85,7 +84,7 @@
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.percentual-nota-exame{
+.porcentagem-nota-exame{
     font-style: normal;
     font-weight: 700;
     line-height: 27px;
@@ -103,14 +102,14 @@
 
 
 
-.cor_aprovado{
+.nota_aprovado{
     background-color: #3347B0;
 }
 
-.cor_meio_termo{
+.nota_meio_termo{
     background-color: #E5B657;
 }
 
-.cor_reprovado{
+.nota_reprovado{
     background-color:#C11010 ;
 }

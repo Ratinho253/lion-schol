@@ -111,14 +111,15 @@ const criandoGrafico = (aluno) => {
             const valorNota = document.createElement('div')
             valorNota.classList.add('cor')
             const valor = parseInt(textNota.textContent)
-
-            if(parseInt(textNota.textContent) >=0 && parseInt(textNota.textContent)<=100){
+            if(parseInt(textNota.textContent) >=70 && parseInt(textNota.textContent)<=100){
+                
                 textNota.classList.add('porcentagem-nota-aprovado')
                 valorNota.classList.add('nota_aprovado')
-            }else if(parseInt(textNota.textContent) >= 70 && parseInt(textNota.textContent)<= 60){
+            }else if(parseInt(textNota.textContent) <= 70 && parseInt(textNota.textContent)<= 60){
                 textNota.classList.add('porcentagem-nota-reprovado')
                 valorNota.classList.add('nota_reprovado')
             }else if(parseInt(textNota.textContent) >=61 && parseInt(textNota.textContent)<= 69){
+                console.log(textNota.textContent);
                 textNota.classList.add('porcentagem-nota-exame')
                 valorNota.classList.add('nota_meio_termo')
             }
